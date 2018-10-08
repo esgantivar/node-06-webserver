@@ -1,0 +1,19 @@
+{% set title = 'Pagina de prueba' %} 
+{% extends 'layout/app.njk' %} 
+{% block content %}
+
+<p>{{firstName}}</p>
+<ul>
+{%for ingredient, amount in food %}
+{{loop.index0}}
+<li>Use {{amount }} of {{ingredient}} !</li>
+{% endfor %}
+</ul>
+{{foo|join(',')}}
+{% block sub %}
+{% set name=firstName %}
+{% include 'partials/name.njk' %}
+{% endblock %}
+<br>
+{{name}}
+{% endblock %}
